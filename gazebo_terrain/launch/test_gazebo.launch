@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="world_name" default="test_small_slope"/>
+  <!-- world_name:
+  used:
+    test_flat
+    test_flat_no_tree
+    test_small_slope
+    test_small_slope_no_tree
+  else:
+    empty
+    terrain_1
+    test
+    square
+  -->
+  <arg name="paused" value="false"/>
+  <arg name="use_sim_time" value="true"/>
+  <arg name="headless" value="false"/>
+  <arg name="debug" value="false"/>
+
+  <arg name="x_pos" default="2.00"/>
+  <arg name="y_pos" default="2.00"/>
+  <arg name="z_pos" default="0.075"/>
+  <arg name="open_rviz" default="true"/>
+   <arg name="slam_methods" default="gmapping"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find gazebo_terrain)/worlds/$(arg world_name).world"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <!-- <include file="$(find mybunker_bringup)/launch/bunker_remote.launch"/> -->
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro  '$(find gazebo_terrain)/urdf/bunker.xacro'" /> 
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model bunker -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+   
+ 
+  <node name="robot_state_publisher"   pkg="robot_state_publisher"    type="robot_state_publisher" >
+  </node>
+  
+  <!-- <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find bunker_slam)/rviz/bunker_$(arg slam_methods).rviz"/>
+  </group> -->
+  
+  <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find gazebo_terrain)/rviz/farm.rviz" required="true" />-->
+  
+  <!-- <node name="robot_move" pkg="robot_control" type="python" args="-d $(find robot_control)/src/test_together.py" required="true" /> -->
+
+</launch>
