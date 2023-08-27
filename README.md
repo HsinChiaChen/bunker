@@ -28,6 +28,7 @@ This package is used to demonstrate how to create custom terrains and use them i
         $ rqt_graph
         
 5. Drawing
+
         $ rosrun plotjuggler plotjuggler
 
 At this point, Gazebo should have launched, loaded the custom terrain, and
