@@ -2,7 +2,7 @@
 
 <launch>
   <arg name="gui" default="true"/>
-  <arg name="world_name" default="test_small_slope"/>
+  <arg name="world_name" default="test_flat"/>
   <!-- world_name:
   used:
     test_flat
