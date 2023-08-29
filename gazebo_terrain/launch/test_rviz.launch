@@ -30,8 +30,9 @@
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find gazebo_terrain)/worlds/$(arg world_name).world"/>
-    <!-- <arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_house.world"/> -->
     <arg name="gui" value="$(arg gui)"/>
+    <!-- <arg name="world_name" value="$(find gazebo_terrain)/worlds/turtlebot3_house.world"/>
+    <arg name="gui" value="$(arg gui)"/> -->
   </include>
 
   <!-- Map server -->
