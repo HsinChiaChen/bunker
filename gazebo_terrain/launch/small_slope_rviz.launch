@@ -2,17 +2,18 @@
 
 <launch>
   <arg name="gui" default="true"/>
-  <arg name="world_name" default="test_flat"/>
-  <!-- world_name:
-  used:
+  <arg name="world_name" default="test_small_slope"/>
+ <!-- world_name:
+   used:
     test_flat
     test_flat_no_tree
     test_small_slope
     test_small_slope_no_tree
+
   else:
     empty
-    terrain_1
     test
+    terrain_1
     square
   -->
   <arg name="paused" value="false"/>
@@ -22,9 +23,10 @@
 
   <arg name="x_pos" default="2.00"/>
   <arg name="y_pos" default="2.00"/>
-  <arg name="z_pos" default="0.05"/>
+  <arg name="z_pos" default="0.075"/>
   <arg name="open_rviz" default="true"/>
-   <arg name="slam_methods" default="gmapping"/>
+
+  <!-- <arg name="map_file" default="$(find auto_nav)/maps/slam_map.yaml"/> -->
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find gazebo_terrain)/worlds/$(arg world_name).world"/>
@@ -33,7 +35,8 @@
     <arg name="gui" value="$(arg gui)"/> -->
   </include>
 
-  <!-- <include file="$(find mybunker_bringup)/launch/bunker_remote.launch"/> -->
+  <!-- Map server -->
+  <!-- <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/> -->
 
   <!-- Load the URDF into the ROS Parameter Server -->
   <param name="robot_description" command="$(find xacro)/xacro  '$(find gazebo_terrain)/urdf/bunker.xacro'" /> 
@@ -43,13 +46,8 @@
   <node name="robot_state_publisher"   pkg="robot_state_publisher"    type="robot_state_publisher" >
   </node>
   
-  <!-- <group if="$(arg open_rviz)"> 
-    <node pkg="rviz" type="rviz" name="rviz" required="true"
-          args="-d $(find bunker_slam)/rviz/bunker_$(arg slam_methods).rviz"/>
-  </group> -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find gazebo_terrain)/rviz/farm.rviz" required="true" />
   
-  <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find gazebo_terrain)/rviz/farm.rviz" required="true" />-->
-  
-  <!-- <node name="robot_move" pkg="robot_control" type="python" args="-d $(find robot_control)/src/test_together.py" required="true" /> -->
+  <!-- <node name="robot_position" pkg="robot_control" type="python" args="-d $(find robot_control)/src/test_together.py" required="true" /> -->
 
 </launch>

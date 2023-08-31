@@ -9,6 +9,8 @@ Panels:
         - /RobotModel1
         - /TF1/Frames1
         - /TF1/Tree1
+        - /PointCloud21
+        - /Camera1
         - /Marker1
       Splitter Ratio: 0.6360294222831726
     Tree Height: 448
@@ -234,8 +236,8 @@ Visualization Manager:
     - Alpha: 0.5
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 4.611144065856934
-        Min Value: -0.08072251081466675
+        Max Value: 4.889967918395996
+        Min Value: -0.20624437928199768
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -290,7 +292,7 @@ Visualization Manager:
     - Class: rviz/Camera
       Enabled: true
       Image Rendering: overlay
-      Image Topic: /camera/depth/image_raw
+      Image Topic: /camera/color/image_raw
       Name: Camera
       Overlay Alpha: 1
       Queue Size: 2
@@ -397,9 +399,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.07039851695299149
+      Pitch: 0.030398555099964142
       Target Frame: <Fixed Frame>
-      Yaw: 4.565401077270508
+      Yaw: 3.080394983291626
     Saved: ~
 Window Geometry:
   Camera:
