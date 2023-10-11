@@ -12,6 +12,7 @@ Panels:
         - /PointCloud21
         - /Camera1
         - /Marker1
+        - /Marker1/Status1
       Splitter Ratio: 0.6360294222831726
     Tree Height: 448
   - Class: rviz/Selection
@@ -236,8 +237,8 @@ Visualization Manager:
     - Alpha: 0.5
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 4.405043601989746
-        Min Value: -0.07561302185058594
+        Max Value: 4.379335880279541
+        Min Value: -0.07561260461807251
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -311,10 +312,10 @@ Visualization Manager:
       Zoom Factor: 1.7999999523162842
     - Class: rviz/Marker
       Enabled: true
-      Marker Topic: visualization_marker
+      Marker Topic: /marker_basic
       Name: Marker
       Namespaces:
-        {}
+        some_robot: true
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -391,17 +392,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 3.1088733673095703
-        Y: -0.7866967916488647
-        Z: 1.4321471452713013
+        X: 3.051697015762329
+        Y: -2.4310505390167236
+        Z: 2.8626291751861572
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.030398555099964142
+      Pitch: 0.790398359298706
       Target Frame: <Fixed Frame>
-      Yaw: 3.080394983291626
+      Yaw: 4.680398941040039
     Saved: ~
 Window Geometry:
   Camera:
